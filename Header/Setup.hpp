@@ -8,13 +8,13 @@
                 in4.limit_size_of_file = 500000; //bytes
             }
             void Easy(ofstream& fout){
-                /*  Modify here  */fout << 1;
+                /*  Modify here  */
             }
             void Medium(ofstream& fout){
-                /*  Modify here  */fout << 1;
+                /*  Modify here  */
             }
             void Hard(ofstream& fout){
-                /*  Modify here  */fout << 1;
+                /*  Modify here  */
             }
         // Nếu muốn thêm mức cực khó, bỏ cmt hàm sau và chỉnh sửa:
             // #define NIGHTMARE
