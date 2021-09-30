@@ -446,12 +446,12 @@
                         return res;
                     }
                 template <class Type>
-                    vector <int> divisorsOf(const Type& num){
-                        vector <int> res(1, 1);
+                    vector <ll> divisorsOf(const Type& num){
+                        vector <ll> res(1, 1);
                         for(const auto &div:factorAnalyze(num)){
-                            vector <int> tmp(res);
-                            for(int exp = 0, base = div.first; exp<div.second; exp++, base *= div.first)
-                                for(const int &ele:tmp)
+                            vector <ll> tmp(res);
+                            for(ll exp = 0, base = div.first; exp<div.second; exp++, base *= div.first)
+                                for(const ll &ele:tmp)
                                     res.push_back(base * ele);
                         }
                         sort(res.begin(), res.end());
