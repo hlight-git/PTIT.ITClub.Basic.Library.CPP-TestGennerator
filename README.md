@@ -115,32 +115,33 @@ Sửa các hàm Easy, Medium, Hard (và cả NightMare nếu cần). Các hàm n
 
 *Đa phần funtions đều được viết theo dạng template nên không cần quá lo về kiểu dữ liệu.*
 
-- **BigInt gần như đầy đủ operator**.
+- **Class BigInt cho số nguyên lớn gần như đầy đủ operator**.
 
-- **Một số hàm báo lỗi thực thi khi sinh test case**.
+- **Một số hàm kiểm tra tiến độ khi sinh test case**.
 
 - **Random & Shuffle**:
-  - Random số nguyên.
-  - Random số thực.
-  - Random BigInt.
-  - Random Unique Array: một vector không chứa phần tử trùng nhau theo thứ tự ngẫu nhiên.
-  - Bộ Array Shuffle tráo ngẫu nhiên các phần tử trong mảng.
+  - Random số nguyên từ left -> right với randll(left, right).
+  - Random số thực từ left -> right với randdb(left, right).
+  - Random BigInt có numOfDigits chữ số với randBigInt(numOfDigits).
+  - Random BigInt từ left -> right với randBigInt(left, right), không recommend dùng hàm này vì tính ngẫu nhiên còn thấp.
+  - vector <Type> randUniqueArr(N, left, right): Random một vector có N phần tử với giá trị trong [left, right]. Nó không chứa phần tử trùng nhau và xếp theo thứ tự ngẫu nhiên.
+  - void ArrShuff(arr): Tráo ngẫu nhiên các phần tử trong mảng arr.
 
 - **Số nguyên tố**:
-  - Số nguyên tố thứ n. (1 < n < 5761455)
-  - Kiểm tra số nguyên tố trong O(sqrt(n)/6).
-  - List số nguyên tố theo serial (số thứ tự).
-  - List số nguyên tố theo đoạn [L, R] (R < 1e8).
-  - Sàng Eratosthenes trong đoạn [L, R] với L, R có thể là số lớn.
+  - int primeTh(n): Số nguyên tố thứ n. (1 < n < 5761455)
+  - bool isPrime(N): Kiểm tra N có là số nguyên tố không trong O(sqrt(n)/6).
+  - vector <int> primeListBySerial(left, right) : List số nguyên tố từ left -> right theo serial (số thứ tự).
+  - vector <int> primeListByValue(left, right): List số nguyên tố từ left -> right theo đoạn [L, R] (R < 1e8).
+  - vector <long long> EratosthenesOnRange(L, R): Sàng Eratosthenes trong đoạn [L, R] với L, R có thể là số lớn. Trả về vector chứa các số nguyên tố trong [L, R]
 
 - **Palindrome (cấu trúc đối xứng)**:
-  - Kiểm tra một object có đối xứng hay không.
-  - Kiểm tra một array có đối xứng hay không.
-  - Kiểm tra một STL Sequence Container có đối xứng hay không.
+  - bool isPalindrome(var): Kiểm tra var có phải một biến đối xứng hay không.
+  - bool isPalindromeArray(arr): Kiểm tra một array có đối xứng hay không.
+  - bool isPalindromeSContainer(SC): Kiểm tra một STL Sequence Container có đối xứng hay không.
 
 - **Khác**:
-  - Kiểm tra số nguyên.
-  - Kiểm tra số chính phương.
-  - Phân tích thừa số nguyên tố.
-  - Tìm list ước của một số.
-  - Tìm số lượng ước của một số.
+  - bool isInteger(num): Kiểm tra num có là số nguyên không.
+  - bool isSquareNum(num): Kiểm tra num có là số chính phương không.
+  - map <int, int> factorAnalyze(num): Phân tích thừa số nguyên tố của num với map chứa các phần tử `(ước nguyên tố; mũ)`.
+  - vector <ll> divisorsOf(num): Tìm list ước của num.
+  - int numOfDivisors(num): Tìm số lượng ước của số num.
