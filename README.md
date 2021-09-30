@@ -89,7 +89,11 @@ Script này tự động hóa quá trình: `Sinh test in -> Sinh test out -> D�
 <a name = "2"></a>
 ## 2. Hướng dẫn tạo một Problem
 
-#### Bước 0: Sửa nội dung Description.docx thành nội dung đề. Sửa nội dung NoteForAProblem.txt thành nội dung cần note. Đảm bảo code solution đúng. Không đổi tên bất kỳ file nào có sẵn.
+#### Bước 0: Thực hiện:
+- Sửa nội dung Description.docx thành nội dung đề. 
+- Sửa nội dung NoteForAProblem.txt thành nội dung cần note. 
+- Đảm bảo code solution đúng. 
+- **Không đổi tên bất kỳ file nào có sẵn.**
 
 #### Bước 1: Mở và sửa các nội dung trong Setup.hpp:
 - Các biến:
