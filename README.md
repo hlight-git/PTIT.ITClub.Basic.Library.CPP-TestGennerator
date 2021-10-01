@@ -97,8 +97,8 @@ Script này tự động hóa quá trình: `Sinh test in -> Sinh test out -> D�
 
 #### Bước 1: Mở và sửa các nội dung trong Setup.hpp:
 - Các biến:
-  - in4.number_of_test_case: quyết định số lượng test case sinh ra.
-  - in4.limit_size_of_file: đưa ra giới hạn dung lượng các file được sinh.
+  - inf.number_of_test_case: quyết định số lượng test case sinh ra.
+  - inf.limit_size_of_file: đưa ra giới hạn dung lượng các file được sinh.
 - Các hàm: 
 
 Sửa các hàm Easy, Medium, Hard (và cả NightMare nếu cần). Các hàm này sẽ là hàm sinh nội dung cho những file input của test case.

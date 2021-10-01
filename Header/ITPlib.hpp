@@ -231,8 +231,8 @@
                         cout << "ERROR: File not found!";
                     else if(fempty(dir))
                         cout << "ERROR: An empty file!";
-                    else if(fsize(dir) >= inf.limit_size_of_file)
-                        cout << "ERROR: File size limit exceeded, it should be less than" << (inf.limit_size_of_file/1024.0) << "kb, not " << (fsize(dir)/1024.0) << "kb!";
+                    else if(inf.limit_size_of_file > 0 && fsize(dir) >= inf.limit_size_of_file)
+                        cout << "ERROR: File size limit exceeded, it should be less than " << (inf.limit_size_of_file/1024.0) << "kb, not " << (fsize(dir)/1024.0) << "kb!";
                     else return "nothing";
                     fin.close();
                     cout << "\nThe program was interrupted by the above error, please check again!";
