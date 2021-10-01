@@ -68,8 +68,8 @@ Là python script để đóng gói, nó sẽ tự động sinh ra và zip 1 fol
 - Problem.docx (lấy nội dung từ Description.docx).
 - Note.txt (lấy nội dung từ NoteForAProblem.txt).
 - Setup.hpp.
-- Solutions's folder.
-- Test cases's folder.
+- Solutions folder.
+- Test cases folder.
 
 #### File zip này là file zip của đề với fomart tên `Problem<input>.zip` - input là tên Problem người dùng nhập vào, nếu cần package và gửi đi thì chỉ cần file này là đủ.`
 
