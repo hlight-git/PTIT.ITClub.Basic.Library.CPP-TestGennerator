@@ -10,7 +10,7 @@
   - ##### [PrimeNumbers.txt](#133)
 
 - #### [Solutions](#14)
-- #### [TimeChecker](#15)
+- #### [TimeLaboratory](#15)
 - #### [Packager.py](#16)
 - #### [Generator.cpp](#17)
 
@@ -55,7 +55,7 @@ Vai trò như tên, chứa tài nguyên hỗ trợ. Có 2 file cần chú ý đ�
 Folder chứa solutions - các cách giải, các file được tùy chỉnh nhưng **code được sử dụng để sinh test sẽ giữ ở file `MainSolution.cpp`**.
 <a name = "15"></a>
 
-### TimeChecker
+### TimeLaboratory
 Folder chứa C++ script để đo và so sánh thời gian chạy của các phương pháp (method) cần test. Mỗi method là một file code c/c++ của người dùng. Sử dụng script này bằng cách **đưa methods vào folder này** và Compile&Run `Comparator.cpp`.
 
 
@@ -98,7 +98,7 @@ Script này tự động hóa quá trình: `Sinh test in -> Sinh test out -> D�
 #### Bước 1: Mở và sửa các nội dung trong Setup.hpp:
 - Các biến:
   - inf.number_of_test_case: quyết định số lượng test case sinh ra.
-  - inf.limit_size_of_file: đưa ra giới hạn dung lượng các file được sinh.
+  - inf.limit_size_of_file: đưa ra giới hạn dung lượng các file được sinh (nếu để < 0 thì sẽ không tính giới hạn cho file).
 - Các hàm: 
 
 Sửa các hàm Easy, Medium, Hard (và cả NightMare nếu cần). Các hàm này sẽ là hàm sinh nội dung cho những file input của test case.
