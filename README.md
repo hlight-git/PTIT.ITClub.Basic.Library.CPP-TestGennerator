@@ -4,13 +4,8 @@
 - #### [Header](#11)
 - #### [Creator](#12)
 - #### [Resources](#13)
-
-  - ##### [NoteForAProblem.txt](#131)
-  - ##### [Description.docx](#132)
-  - ##### [PrimeNumbers.txt](#133)
-
 - #### [Solutions](#14)
-- #### [TimeLaboratory](#15)
+- #### [Laboratory](#15)
 - #### [Packager.py](#16)
 - #### [Generator.cpp](#17)
 
@@ -41,13 +36,13 @@
 ### Resources
 
 Vai trò như tên, chứa tài nguyên hỗ trợ. Có 2 file cần chú ý đó là:
-<a name = "131"></a>
+
 - **NoteForAProblem.txt**: 
        File này dùng để note lại các vấn đề mà người ra đề cần truyền đạt lại với người up đề. Yêu cầu **chỉ chỉnh sửa nội dung và không làm gì khác ngoài chỉnh sửa nội dung.**
-<a name = "132"></a>
+
 - **Description.docx**: 
        File đã để sẵn form đề thi, yêu cầu **đưa đề thi đúng format vào đây và không làm gì khác**.
-<a name = "133"></a>
+
 - **PrimeNumbers.txt**:
        Tất cả các số nguyên tố nhỏ hơn 1e8, sắp xếp lần lượt theo dòng.
 <a name = "14"></a>
@@ -55,12 +50,16 @@ Vai trò như tên, chứa tài nguyên hỗ trợ. Có 2 file cần chú ý đ�
 Folder chứa solutions - các cách giải, các file được tùy chỉnh nhưng **code được sử dụng để sinh test sẽ giữ ở file `MainSolution.cpp`**.
 <a name = "15"></a>
 
-### TimeLaboratory
-Folder chứa C++ script để đo và so sánh thời gian chạy của các phương pháp (method) cần test. Mỗi method là một file code c/c++ của người dùng. Sử dụng script này bằng cách **đưa methods vào folder này** và Compile&Run `Comparator.cpp`.
+### Laboratory
 
+- **Methods**: Các giải pháp cần thí nghiệm.
 
-Trong script có một biến bool cleanMode quản lý chế độ cleanMode. Nếu không sử dụng cleanMode, sau khi chạy Comparator.exe, trong folder sẽ có một folder Temp chứa các folder con, mỗi folder con này lại chứa test sinh out của từng method, có thể dựa vào đây để xem các method có chạy đúng hoàn toàn hay không. Nếu dùng cleanMode, folder Temp và các file exe compile từ methods sẽ bị xóa.
+- **RunTimeComparator.cpp**: Script so sánh thời gian chạy của các giải pháp trong folder Methods.
 
+Trong script có một biến bool cleanMode quản lý chế độ cleanMode:
+- Nếu không sử dụng cleanMode, khi chạy RunTimeComparator, chương trình sẽ tạo ra folder Temp với các folder con chứa test sinh out của từng method, có thể dựa vào đây để xem các method có chạy đúng hoàn toàn hay không.
+- Nếu dùng cleanMode, folder Temp sẽ bị xóa.
+- Script sẽ luôn tự động xóa các file exe compile từ methods.
 <a name = "16"></a>
 ### Packager.py
 Là python script để đóng gói, nó sẽ tự động sinh ra và zip 1 folder chứa:
@@ -120,28 +119,29 @@ Sửa các hàm Easy, Medium, Hard (và cả NightMare nếu cần). Các hàm n
 - **Một số hàm kiểm tra tiến độ khi sinh test case**.
 
 - **Random & Shuffle**:
-  - Random số nguyên từ left -> right với randll(left, right).
-  - Random số thực từ left -> right với randdb(left, right).
-  - Random BigInt có numOfDigits chữ số với randBigInt(numOfDigits).
-  - Random BigInt từ left -> right với randBigInt(left, right), không recommend dùng hàm này vì tính ngẫu nhiên còn thấp.
-  - vector <Type> randUniqueArr(N, left, right): Random một vector có N phần tử với giá trị trong [left, right]. Nó không chứa phần tử trùng nhau và xếp theo thứ tự ngẫu nhiên.
-  - void ArrShuff(arr): Tráo ngẫu nhiên các phần tử trong mảng arr.
-
+  - `long long randll(left, right)`: Random số nguyên từ left -> right.
+  - `double randdb(left, right)`: Random số thực từ left -> right.
+  - `BigInt randBigInt(numOfDigits)`: Random BigInt có `numOfDigits` chữ số.
+  - `BigInt randBigInt(left, right)`: Random BigInt từ left -> right, không recommend dùng hàm này vì tính ngẫu nhiên còn thấp.
+  - `void ArrShuff(arr)`: Tráo ngẫu nhiên các phần tử trong mảng arr.
+  - `vector <Type> randUniqueArr(N, left, right)`: Random một vector có N phần tử với giá trị trong [left, right]. Nó không chứa phần tử trùng nhau và xếp theo thứ tự ngẫu nhiên.
+  - `vector <Type> randEleListOf(N, vect)`: Random một vector N phần tử ngẫu nhiên, mỗi phần tử của nó là một phần tử bất kỳ của vect. Nếu `N <= vect.size()`, kết quả là một **hoán vị** của một **tổ hợp N phần tử** ngẫu nhiên của vect.
+  - `vector <Type> randEleListOf(N, vect, limit)`: Tương tự trên nhưng có giới hạn lần lặp lại một phần tử là `limit` lần.
 - **Số nguyên tố**:
-  - int primeTh(n): Số nguyên tố thứ n. (1 < n < 5761455)
-  - bool isPrime(N): Kiểm tra N có là số nguyên tố không trong O(sqrt(n)/6).
-  - vector <int> primeListBySerial(left, right) : List số nguyên tố từ left -> right theo serial (số thứ tự).
-  - vector <int> primeListByValue(left, right): List số nguyên tố từ left -> right theo đoạn [L, R] (R < 1e8).
-  - vector <long long> EratosthenesOnRange(L, R): Sàng Eratosthenes trong đoạn [L, R] với L, R có thể là số lớn. Trả về vector chứa các số nguyên tố trong [L, R]
+  - `int primeTh(n)`: Số nguyên tố thứ n. (1 < n < 5761455)
+  - `bool isPrime(N)`: Kiểm tra `N` có là số nguyên tố không trong O(sqrt(N)/6).
+  - `vector <int> primeListBySerial(left, right)` : List số nguyên tố từ left -> right theo serial (số thứ tự).
+  - `vector <int> primeListByValue(left, right)`: List số nguyên tố từ left -> right theo đoạn [L, R] (R < 1e8).
+  - `vector <long long> EratosthenesOnRange(L, R)`: Sàng Eratosthenes trong đoạn [L, R] với L, R có thể là số lớn. Trả về vector chứa các số nguyên tố trong [L, R]
 
 - **Palindrome (cấu trúc đối xứng)**:
-  - bool isPalindrome(var): Kiểm tra var có phải một biến đối xứng hay không.
-  - bool isPalindromeArray(arr): Kiểm tra một array có đối xứng hay không.
-  - bool isPalindromeSContainer(SC): Kiểm tra một STL Sequence Container có đối xứng hay không.
+  - `bool isPalindrome(var)`: Kiểm tra var có phải một biến đối xứng hay không.
+  - `bool isPalindromeArray(arr)`: Kiểm tra một array có đối xứng hay không.
+  - `bool isPalindromeSContainer(SC)`: Kiểm tra một STL Sequence Container có đối xứng hay không.
 
 - **Khác**:
-  - bool isInteger(num): Kiểm tra num có là số nguyên không.
-  - bool isSquareNum(num): Kiểm tra num có là số chính phương không.
-  - map <int, int> factorAnalyze(num): Phân tích thừa số nguyên tố của num với map chứa các phần tử `(ước nguyên tố; mũ)`.
-  - vector <ll> divisorsOf(num): Tìm list ước của num.
-  - int numOfDivisors(num): Tìm số lượng ước của số num.
+  - `bool isInteger(num)`: Kiểm tra `num` có là số nguyên không.
+  - `bool isSquareNum(num)`: Kiểm tra `num` có là số chính phương không.
+  - `map <int, int> factorAnalyze(num)`: Phân tích thừa số nguyên tố của num với map chứa các phần tử `(ước nguyên tố; mũ)`.
+  - `vector <ll> divisorsOf(num)`: Tìm list ước của `num`.
+  - `int numOfDivisors(num)`: Tìm số lượng ước của số `num`.

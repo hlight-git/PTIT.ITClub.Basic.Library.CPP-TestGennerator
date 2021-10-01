@@ -1,6 +1,6 @@
 #include "Header/ITPlib.hpp"
 #include <windows.h>
-#include <strsafe.h>
+// #include <strsafe.h>
 
 bool cleanMode = false;
 
@@ -14,17 +14,17 @@ bool pyInstalled(){
     return false;
 }
 
-void selfDestruct(){
-    TCHAR szModuleName[MAX_PATH];
-    TCHAR szCmd[2 * MAX_PATH];
-    STARTUPINFO si = {0};
-    PROCESS_INFORMATION pi = {0};
-    GetModuleFileName(NULL, szModuleName, MAX_PATH);
-    StringCbPrintf(szCmd, 2 * MAX_PATH, TEXT("cmd.exe /C ping 1.1.1.1 -n 1 -w 3000 > Nul & Del /f /q \"%s\""), szModuleName);
-    CreateProcess(NULL, szCmd, NULL, NULL, FALSE, CREATE_NO_WINDOW, NULL, NULL, &si, &pi);
-    CloseHandle(pi.hThread);
-    CloseHandle(pi.hProcess);
-}
+// void selfDestruct(){
+//     TCHAR szModuleName[MAX_PATH];
+//     TCHAR szCmd[2 * MAX_PATH];
+//     STARTUPINFO si = {0};
+//     PROCESS_INFORMATION pi = {0};
+//     GetModuleFileName(NULL, szModuleName, MAX_PATH);
+//     StringCbPrintf(szCmd, 2 * MAX_PATH, TEXT("cmd.exe /C ping 1.1.1.1 -n 1 -w 3000 > Nul & Del /f /q \"%s\""), szModuleName);
+//     CreateProcess(NULL, szCmd, NULL, NULL, FALSE, CREATE_NO_WINDOW, NULL, NULL, &si, &pi);
+//     CloseHandle(pi.hThread);
+//     CloseHandle(pi.hProcess);
+// }
 
 int main(){
     int interrupted = 0;
@@ -36,7 +36,7 @@ int main(){
     if(interrupted){
         cout << endl;
         system("pause");
-        if(cleanMode)   selfDestruct();
+        // if(cleanMode)   selfDestruct();
         return 0;
     }
     if(!isExist(".\\Creator\\OutCreator"))
@@ -49,7 +49,7 @@ int main(){
     if(interrupted){
         cout << endl;
         system("pause");
-        if(cleanMode)   selfDestruct();
+        // if(cleanMode)   selfDestruct();
         return 0;
     }
     Sleep(1000);
@@ -59,13 +59,13 @@ int main(){
         if(interrupted){
             cout << endl;
             system("pause");
-            if(cleanMode)   selfDestruct();
+            // if(cleanMode)   selfDestruct();
             return 0;
         }
         cout << "Packaged successfully!\n";
     }
     cout << "Everything is done!\n";
     system("pause");
-    if(cleanMode)   selfDestruct();
+    // if(cleanMode)   selfDestruct();
     return 0;
 }

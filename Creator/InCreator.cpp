@@ -33,7 +33,10 @@ int main(){
         if(error_check(dir, in4) == "ERROR") return 1;
         cout << "Create input test case " << i << " successfully!" << endl;
     }
-    cout << "\t=> Everything seems to be good!\n";
+    if(in4.limit_size_of_file > 0)
+        cout << "\t=> Everything seems to be good!\n";
+    else
+        cout << "WARNING: You don't set memory limit!\n";
     cout << "INPUT TEST CASES CREATOR - END.\n";
     return 0;
 }

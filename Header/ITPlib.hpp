@@ -5,9 +5,9 @@
      * @Author: HlighT.
      * @Facebook: fb.com/hlight.fb
      * @Date Created: 22/08/2021.
-     * @Version: 1.1.0
+     * @Version: 1.1.4
      * @Modifier: HlighT.
-     * @Last Date Modified: 29/09/2021.
+     * @Last Date Modified: 1/10/2021.
     */
             #include <bits/stdc++.h>
             #include <assert.h>
@@ -238,7 +238,7 @@
                     cout << "\nThe program was interrupted by the above error, please check again!";
                     return "ERROR";
                 }
-            /*  Random number   */
+            /*  Random & Shuffle  */
                 ll randll(const ll& left, const ll& right){
                     return rng() % (right - left + 1) + left;
                 }
@@ -273,21 +273,6 @@
                             return randdb(left, right);
                         return randll(left, right);
                     }
-                //NOT FOR BIGINT.
-                template <typename Type>
-                    vector <Type> randUniqueArr(const int& size, const Type& left, const Type& right){
-                        map <Type, bool> seen;
-                        vector <Type> res;
-                        do{
-                            Type tmp = random(left, right);
-                            if(!seen[tmp]){
-                                seen[tmp] = true;
-                                res.push_back(tmp);
-                            }
-                        }while(res.size() < size);
-                        return res;
-                    }
-            /*  Array shuffle - Note: có thể dùng hàm random_shuffle */
                 //HÃY DÙNG "arrShuff (arr)"!
                 template <class Type> 
                     void Array_Shuffle(Type &a, const int& size){
@@ -306,6 +291,48 @@
                 template <class Type> 
                     void arrShuff(vector <Type>& arr){
                         Array_Shuffle(arr, arr.size());
+                    }
+                //NOT FOR BIGINT.
+                template <typename Type>
+                    vector <Type> randUniqueArr(const int& size, const Type& left, const Type& right){
+                        map <Type, bool> seen;
+                        vector <Type> res;
+                        do{
+                            Type tmp = random(left, right);
+                            if(!seen[tmp]){
+                                seen[tmp] = true;
+                                res.push_back(tmp);
+                            }
+                        }while(res.size() < size);
+                        return res;
+                    }
+                template <class Type>
+                    vector <Type> randEleListOf(vector <Type> vect, const int& size){
+                        if(vect.size() > size){
+                            arrShuff(vect);
+                            while(vect.size() > size)
+                                vect.pop_back();
+                            return vect;
+                        }
+                        vector <Type> res;
+                        while(res.size() < size)
+                            res.push_back(vect[randll(0, vect.size()-1)]);
+                        return res;
+                    }
+                template <class Type>
+                    vector <Type> randEleListOf(vector <Type> vect, const int& size, const int& repeatLim){
+                        map <int, int> seen;
+                        vector <Type> res;
+                        while(res.size() < size){
+                            int pos = randll(0, vect.size()-1);
+                            if(seen[pos] == repeatLim)
+                                vect.erase(vect.begin() + pos);
+                            else{
+                                res.push_back(vect[pos]);
+                                ++seen[pos];
+                            }
+                        }
+                        return res;
                     }
             /*  Prime Numbers   */
                 template <class Type>

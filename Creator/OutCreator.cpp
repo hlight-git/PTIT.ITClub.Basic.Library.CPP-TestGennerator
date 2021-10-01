@@ -19,9 +19,12 @@ int main(){
         double time_cost = (double)(clock() - tStart)/CLOCKS_PER_SEC;
         cout << "\33[2K\033[A\n\t     +    ";
         if(error_check(fpath + to_string(i) + ".out", in4) == "ERROR") return 1;
-        cout << "Create output test case " << i << " suscessfully in " << setprecision(5) << fixed << time_cost << " seconds!\n";
+        cout << "Create output test case " << i << " suscessfully in " << setprecision(3) << fixed << time_cost << " seconds!\n";
     }
-    cout << "\t=> Everything seems to be good!\n";
+    if(in4.limit_size_of_file > 0)
+        cout << "\t=> Everything seems to be good!\n";
+    else
+        cout << "WARNING: You don't set memory limit!\n";
     cout << "OUTPUT TEST CASES CREATOR - END.\n";
     return 0;
 }

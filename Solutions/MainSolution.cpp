@@ -37,7 +37,7 @@ void init(){
 }
 
 void solve(){
-    cout << 2;
+
 }
 
 /*Main program*/
