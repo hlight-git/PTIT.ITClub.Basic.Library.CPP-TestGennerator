@@ -5,9 +5,9 @@
      * @Author: HlighT.
      * @Facebook: fb.com/hlight.fb
      * @Date Created: 22/08/2021.
-     * @Version: 1.1.4
+     * @Version: 1.1.6
      * @Modifier: HlighT.
-     * @Last Date Modified: 1/10/2021.
+     * @Last Date Modified: 14/10/2021.
     */
             #include <bits/stdc++.h>
             #include <assert.h>
@@ -320,16 +320,20 @@
                         return res;
                     }
                 template <class Type>
-                    vector <Type> randEleListOf(vector <Type> vect, const int& size, const int& repeatLim){
-                        map <int, int> seen;
+                    vector <Type> randEleListOf(const vector <Type>& vect, const int& size, const int& repeatLim){
+                        vector < pair <Type, int> > seen(vect.size());
+                        for(int i=0; i<vect.size(); i++){
+                            seen[i].first = vect[i];
+                            seen[i].second = repeatLim;
+                        }
                         vector <Type> res;
                         while(res.size() < size){
-                            int pos = randll(0, vect.size()-1);
-                            if(seen[pos] == repeatLim)
-                                vect.erase(vect.begin() + pos);
+                            int pos = randll(0, seen.size()-1);
+                            if(seen[pos].second == 0)
+                                seen.erase(seen.begin() + pos);
                             else{
-                                res.push_back(vect[pos]);
-                                ++seen[pos];
+                                res.push_back(seen[pos].first);
+                                --seen[pos].second;
                             }
                         }
                         return res;

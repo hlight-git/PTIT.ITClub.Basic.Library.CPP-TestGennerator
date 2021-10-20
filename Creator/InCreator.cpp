@@ -20,7 +20,7 @@ int main(){
         string dir = address + '/' + to_string(i) + ".in";
         cout << "\t     +  Creating...";
         ofstream fout(dir.c_str());
-            if      (i < normal/3)     Easy(fout);
+            if      (i < normal/3)       Easy(fout);
             else if (i < 2*normal/3)     Medium(fout);
             else if (i < normal)    Hard(fout);
             else{
